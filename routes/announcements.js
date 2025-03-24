@@ -31,18 +31,18 @@ router.post('/',
         .trim()
         .isLength({ min: 3, max: 100 })
         .withMessage('Başlık 3 ve 100 karakter arası olmalıdır.')
-        .escape(), // ✅ Escapes special characters
+        .escape(), 
     body('content')
         .isString()
         .withMessage('Title must be a string.')
         .trim()
         .isLength({ min: 10, max: 5000 })
         .withMessage('Konu 10 ve 5000 karakter arası olmalıdır.')
-        .customSanitizer(sanitizeContent), // ✅ Sanitizes content
+        .customSanitizer(sanitizeContent), 
     body('author')
         .trim()
         .isMongoId()
-        .withMessage('Invalid author ID.'), // ✅ Ensures valid MongoDB ObjectId
+        .withMessage('Invalid author ID.'), 
 ],
   async (req, res) => {
   try {
